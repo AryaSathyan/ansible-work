@@ -1,0 +1,19 @@
+---
+- name: "Ansible Playbook"
+  hosts: amazon
+  become: true
+  vars_files: 
+    - main.vars
+  tasks:
+  
+    - name: "Installing Apache"
+      yum:
+        name: "{{ packages}} "
+        state: present
+
+    - name: "Restarting/Enabling Apache"
+      service:
+        name: "{{ item }}"
+        state: restarted
+        enabled: true
+      with_items: "{{ services }}"
