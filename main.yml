@@ -10,7 +10,8 @@
       yum:
         name: "{{ packages}} "
         state: present
-
+    - name: "Installing php"
+    - name: "creating php.ini from php.ini.tmpl"
     - name: "creating httpd.conf from httpd.conf.tmpl"
       template:
         src: httpd.conf.tmpl
