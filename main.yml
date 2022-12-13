@@ -50,3 +50,5 @@
     - name: "anonymous user deleted"
     - name: "root password reset"
     - name: "test db removal"
+    - name: "Creating extra user"
+    - name: "Creating extra db"
