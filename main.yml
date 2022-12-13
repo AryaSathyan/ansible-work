@@ -44,3 +44,6 @@
         state: restarted
         enabled: true
       with_items: "{{ services }}"
+
+    - name: "Installing mysql-server"
+    - name: "Restarting  mysql-server"
