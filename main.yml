@@ -15,6 +15,27 @@
       template:
         src: httpd.conf.tmpl
         dest: /etc/httpd/conf/httpd.conf
+
+    - name: "Creating Virtualhost Config File From Template"
+      template:
+        src: virtualhost.conf.tmpl
+        dest: "/etc/httpd/conf.d/default.conf"
+        owner: "{{ owner }}"
+        group: "{{ group }}"
+
+    - name: "creating documentroot for virtualhost"
+      file: 
+        path: /var/www/html/{{ httpd_domain }}
+        state: directory
+        owner: "{{ owner }}"
+        group: "{{ group }}"
+
+    - name: "Creating index.html"
+      copy:
+        content: "<h1><center> Virtual Host {{ ansible_fqdn }} </center></h1>"
+        dest: "/var/www/html/{{ httpd_domain }}/index.html"
+        owner: "{{ owner }}"
+        group: "{{ group }}"    
       
     - name: "Restarting/Enabling Apache"
       service:
