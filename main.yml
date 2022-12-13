@@ -47,3 +47,6 @@
 
     - name: "Installing mysql-server"
     - name: "Restarting  mysql-server"
+    - name: "anonymous user deleted"
+    - name: "root password reset"
+    - name: "test db removal"
