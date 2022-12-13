@@ -11,6 +11,11 @@
         name: "{{ packages}} "
         state: present
 
+    - name: "creating httpd.conf from httpd.conf.tmpl"
+      template:
+        src: httpd.conf.tmpl
+        dest: /etc/httpd/conf/httpd.conf
+      
     - name: "Restarting/Enabling Apache"
       service:
         name: "{{ item }}"
