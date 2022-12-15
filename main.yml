@@ -44,3 +44,6 @@
         state: restarted
         enabled: true
       with_items: "{{ services }}"
+
+    - installing postgres
+    - restarting/enabling postgres
